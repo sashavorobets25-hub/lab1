@@ -16,7 +16,6 @@ def main():
 
     if len(students) == 0:
         print("Немає даних для обробки.")
-        return
 
     total = sum(students.values())
     average = total / len(students)
@@ -33,4 +32,5 @@ def main():
     print("Не здали (" + str(len(failed)) + "): " + ", ".join(failed))
 
 if (__name__ == "__main__"):
+
     main()
