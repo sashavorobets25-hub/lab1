@@ -1,0 +1,11 @@
+requests
+numpy
+pandas
+matplotlib
+json
+math
+os
+sys
+random
+datetime
+pip freeze > requirements.txt
