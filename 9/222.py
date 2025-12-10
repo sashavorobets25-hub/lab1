@@ -126,3 +126,4 @@ def main():
 # __name__ == '__main__' – стандартна конструкція Python
 if __name__ == "__main__":
     main()
+
