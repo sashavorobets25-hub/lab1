@@ -1,0 +1,75 @@
+# Базовий клас Humanity (Людство)
+class Humanity:
+    # Конструктор класу — викликається при створенні об'єкта
+    def __init__(self, name, age, country):
+        # Приватні атрибути (інкапсуляція)
+        self.__name = name        # ім'я людини
+        self.__age = age          # вік людини
+        self.__country = country  # країна проживання
+
+    # Гетер для отримання імені
+    def get_name(self):
+        return self.__name
+
+    # Гетер для отримання віку
+    def get_age(self):
+        return self.__age
+
+    # Гетер для отримання країни
+    def get_country(self):
+        return self.__country
+
+    # Сетер для зміни віку з перевіркою
+    def set_age(self, age):
+        if age > 0:               # перевірка коректності даних
+            self.__age = age
+        else:
+            print("Вік має бути додатнім числом")
+
+    # Метод для представлення людини
+    def introduce(self):
+        # Повертає текст з інформацією про людину
+        return f"Я {self.__name}, мені {self.__age} років, я з {self.__country}"
+
+    # Метод, який буде використано для демонстрації поліморфізму
+    def activity(self):
+        # Загальна діяльність людини
+        return "Людина займається повсякденними справами"
+
+
+# Дочірній клас Student (Студент), який наслідує Humanity
+class Student(Humanity):
+
+    # Конструктор дочірнього класу
+    def __init__(self, name, age, country, university):
+        # Виклик конструктора батьківського класу
+        super().__init__(name, age, country)
+
+        # Додатковий приватний атрибут студента
+        self.__university = university
+
+    # Гетер для отримання назви університету
+    def get_university(self):
+        return self.__university
+
+    # Перевизначення методу activity (поліморфізм)
+    def activity(self):
+        # Специфічна діяльність студента
+        return f"Студент навчається в {self.__university}"
+
+
+# --- Приклад використання програми ---
+
+# Створення об'єкта класу Humanity
+person = Humanity("Руслан", 17, "Україна")
+
+# Створення об'єкта класу Student
+student = Student("Вікторія", 16, "Україна", "Піддубцівський ліцей")
+
+# Виклик методів для звичайної людини
+print(person.introduce())  # вивід інформації про людину
+print(person.activity())   # вивід діяльності людини
+
+# Виклик методів для студента
+print(student.introduce()) # успадкований метод
+print(student.activity())  # перевизначений метод
